@@ -3,7 +3,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
-
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 /**
  * Created by Dmitry on 13.03.2017.
  */
@@ -21,6 +22,10 @@ public class GettingStarted extends BaseTest {
         searchBox.sendKeys("ChromeDriver");
         searchBox.submit();
         Thread.sleep(5000);  // Let the user actually see something!
-        driver.quit();
+        assertFalse(driver.getTitle().contains("ololo"));
+        assertTrue(driver.getTitle().contains("Google"));
+
     }
+
+
 }
